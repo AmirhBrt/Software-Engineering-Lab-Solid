@@ -1,6 +1,7 @@
 ### Java template
 .idea
 .vscode
+Step_1_Non_SOLID/.idea
 
 # Compiled class file
 *.class
