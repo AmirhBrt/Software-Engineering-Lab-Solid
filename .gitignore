@@ -2,6 +2,9 @@
 .idea
 .vscode
 Step_1_Non_SOLID/.idea
+Step_1_Non_SOLID/.vscode
+Step_3_With_SOLID/.idea
+Step_3_With_SOLID/.vscode
 
 # Compiled class file
 *.class
