@@ -11,6 +11,7 @@ public class Order {
     }
 
     public void addItem(Food food){
+        if (food == null) return;
         this.foods.add(food);
     }
 
