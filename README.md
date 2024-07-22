@@ -280,7 +280,7 @@
 <p>کلاس OrderService و توابع آن</p>
 </td>
 <td width="284">
-<p>استفاده از دو تابع register, order</p>
+<p>استفاده از دو تابع register, pay</p>
 </td>
 </tr>
 <tr>
@@ -288,10 +288,10 @@
 <p>Dependency Inversion</p>
 </td>
 <td width="246">
-<p>کلاس Main و نحوه کال کردن توابع order, register</p>
+<p>کلاس Main و نحوه کال کردن توابع pay, register</p>
 </td>
 <td width="284">
-<p>فقط استفاده از توابع order, register</p>
+<p>فقط استفاده از توابع pay, register</p>
 </td>
 </tr>
 <tr>
@@ -299,10 +299,10 @@
 <p>Single Responsibility</p>
 </td>
 <td width="246">
-<p>هندل شدن منطق register و order در کلاس‌های OrderService</p>
+<p>هندل شدن منطق register و pay در کلاس‌های OrderService</p>
 </td>
 <td width="284">
-<p>جدا کردن منطق register, order با استفاده از interface های جدید</p>
+<p>جدا کردن منطق register, pay با استفاده از interface های جدید</p>
 </td>
 </tr>
 <tr>
@@ -310,10 +310,10 @@
 <p>Open-Closed</p>
 </td>
 <td width="246">
-<p>رعایت نشدن این اصل در کال کردن order, register در کلاس Main</p>
+<p>رعایت نشدن این اصل در کال کردن pay, register در کلاس Main</p>
 </td>
 <td width="284">
-<p>در Main فقط از order, register استفاده شود</p>
+<p>در Main فقط از pay, register استفاده شود</p>
 </td>
 </tr>
 </tbody>
