@@ -1,19 +1,17 @@
-public class Food {
-    String foodName;
-    int price;
-    int quantity =1;
+public enum Food {
 
-    Food(String foodName, int foodPrice){
+    SANDWICH("sandwich", 1000, 1), 
+    PIZZA("pizza", 2000, 2);
+
+    final int itemNumber;
+    final String foodName;
+    final int price;
+    final int quantity = 1;
+
+    Food(String foodName, int foodPrice, int itemNumber){
         this.foodName = foodName;
         this.price = foodPrice;
-    }
-
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+        this.itemNumber = itemNumber;
     }
 
     public int getPrice() {
@@ -22,5 +20,12 @@ public class Food {
 
     public String getFoodName() {
         return foodName;
+    }
+
+    public static Food getFoodByItemNumber(int itemNumber){
+        for (Food f: Food.values()) {
+            if (f.itemNumber == itemNumber) return f;
+        }
+        return null;
     }
 }
