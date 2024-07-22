@@ -144,7 +144,7 @@
 <p><strong>موارد تحقق</strong></p>
 </td>
 <td width="454">
-<p>Food, Order, Main, OrderService, OnlineOrderService, OnSiteOrderService, PhoneOrderService</p>
+<p>Food, Order, Main</p>
 </td>
 </tr>
 <tr>
@@ -152,7 +152,7 @@
 <p><strong>موارد نقض</strong></p>
 </td>
 <td>
-<p></p>
+<p>OrderService, OnlineOrderService, OnSiteOrderService, PhoneOrderService</p>
 </td>
 </tr>
 <tr>
@@ -239,7 +239,7 @@
 </table>
 
 <div dir="rtl">
-کلاس Food, Main, Order فقط یک وظیفه را بر عهده دارند و به ترتیب مشخص کردن نوع غذا و قیمت آن، ساختن سرویس‌های مختلف و شروع استفاده برای مشتری و نگه‌داشتن سفارش مشتری است. همینطور در کلاس‌های OrderService هم این اصل رعایت شده است چون هرکدام وظیفه هندل کردن یک نوع payment را دارند.
+کلاس Food, Main, Order فقط یک وظیفه را بر عهده دارند و به ترتیب مشخص کردن نوع غذا و قیمت آن، ساختن سرویس‌های مختلف و شروع استفاده برای مشتری و نگه‌داشتن سفارش مشتری است. اما در کلاس‌های OrderService هم منطق Payment هندل شده است و هم منطق Registration. بنابراین برای برقراری این اصل این اینترفیس و کلاس‌ها باید تغییر کنند.
 
 </br>
 </br>
@@ -256,3 +256,65 @@
 
 در تابع Main این اصل رعایت نشده است چرا که بسته به اینکه چه کلاسی اینترفیس را پیاده‌سازی کرده است باید رفتار متفاوتی از خود نشان دهد. این کلاس به جای اینکه بر روی abstraction اینترفیس OrderService تمرکز کند، به این دقت می‌کند که چه کلاسی این اینترفیس را پیاده‌سازی کرده است.
 </div>
+
+در جدول پایین پیشنهادات ما آورده شده است.
+
+<table dir='rtl'>
+<tbody>
+<tr>
+<td width="168">
+<p><strong>اصل مربوطه (از اصول </strong><strong>SOLID</strong><strong>)</strong></p>
+</td>
+<td width="246">
+<p><strong>علت نقض</strong></p>
+</td>
+<td width="284">
+<p><strong>راه حل پیشنهادی</strong></p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Interface Segregation</p>
+</td>
+<td width="246">
+<p>کلاس OrderService و توابع آن</p>
+</td>
+<td width="284">
+<p>استفاده از دو تابع register, order</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Dependency Inversion</p>
+</td>
+<td width="246">
+<p>کلاس Main و نحوه کال کردن توابع order, register</p>
+</td>
+<td width="284">
+<p>فقط استفاده از توابع order, register</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Single Responsibility</p>
+</td>
+<td width="246">
+<p>هندل شدن منطق register و order در کلاس‌های OrderService</p>
+</td>
+<td width="284">
+<p>جدا کردن منطق register, order با استفاده از interface های جدید</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Open-Closed</p>
+</td>
+<td width="246">
+<p>رعایت نشدن این اصل در کال کردن order, register در کلاس Main</p>
+</td>
+<td width="284">
+<p>در Main فقط از order, register استفاده شود</p>
+</td>
+</tr>
+</tbody>
+</table>
