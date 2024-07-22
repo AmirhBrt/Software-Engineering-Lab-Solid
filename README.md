@@ -33,4 +33,100 @@
 
 اکنون می‌توانیم در منوی انتخاب روش پرداخت، با انتخاب عدد سه، پرداخت را به صورت تلفنی انجام دهیم. 
 
+جدول تغییرات به صورت زیر است
+
+<table dir='rtl'>
+<tbody>
+<tr>
+<td width="64">
+<p><strong>ردیف</strong></p>
+</td>
+<td width="198">
+<p><strong>محل اعمال تغییرات (کلاس/واسط)</strong></p>
+</td>
+<td width="141">
+<p><strong>عنوان تغییر</strong></p>
+</td>
+<td width="292">
+<p><strong>شرحی کوتاه از تغییر</strong></p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p><strong>۱</strong></p>
+</td>
+<td width="198">
+<p>OrderService</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای پشتیبانی از کلاس جدید</p>
+</td>
+<td width="292">
+<p>افزودن دو تابع void با نام phoneOrderRegister و phoneOrderPayment برای پشتیبانی از روش جدید رجیستر و پرداخت</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۲</strong></p>
+</td>
+<td width="198">
+<p>PhoneOrderService</p>
+</td>
+<td width="141">
+<p>کلاس جدید برای پشتیبانی از خدمات تلفنی</p>
+</td>
+<td width="292">
+<p>افزودن کلاس جدید PhoneOrderService برای پیاده‌سازی دو تابع void با نام‌های phoneOrderPayment و phoneOrderRegister و بدنه‌ تابع‌های دیگر خالی</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۳</strong></p>
+</td>
+<td width="198">
+<p>OnSiteOrderService</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای رفع خطای کامپایل</p>
+</td>
+<td width="292">
+<p>پیاده‌سازی دو تابع جدید phoneOrderRegister و phoneOrderPayment برای پیروی از اینترفیس OrderService</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۴</strong></p>
+</td>
+<td width="198">
+<p>OnlineOrderService</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای رفع خطای کامپایل</p>
+</td>
+<td width="292">
+<p>پیاده‌سازی دو تابع جدید phoneOrderRegister و phoneOrderPayment برای پیروی از اینترفیس OrderService</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۵</strong></p>
+</td>
+<td width="198">
+<p>Main</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای رفع خطای کامپایل</p>
+</td>
+<td width="292">
+<p>اضافه کردن خطوط کد جدید در خطوط ۴۷ تا ۴۹ و ۵۸ تا ۵۹ فایل Main.java برای اضافه کردن روش پرداخت تلفنی جدید</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+
 ## بخش دوم: تحلیل و بررسی برنامه از منظر SOLID
