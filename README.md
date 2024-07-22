@@ -144,7 +144,7 @@
 <p><strong>موارد تحقق</strong></p>
 </td>
 <td width="454">
-<p>Food, Order, Main</p>
+<p>Food, Order</p>
 </td>
 </tr>
 <tr>
@@ -152,7 +152,7 @@
 <p><strong>موارد نقض</strong></p>
 </td>
 <td>
-<p>OrderService, OnlineOrderService, OnSiteOrderService, PhoneOrderService</p>
+<p>Main, OrderService, OnlineOrderService, OnSiteOrderService, PhoneOrderService</p>
 </td>
 </tr>
 <tr>
@@ -239,7 +239,7 @@
 </table>
 
 <div dir="rtl">
-کلاس Food, Main, Order فقط یک وظیفه را بر عهده دارند و به ترتیب مشخص کردن نوع غذا و قیمت آن، ساختن سرویس‌های مختلف و شروع استفاده برای مشتری و نگه‌داشتن سفارش مشتری است. اما در کلاس‌های OrderService هم منطق Payment هندل شده است و هم منطق Registration. بنابراین برای برقراری این اصل این اینترفیس و کلاس‌ها باید تغییر کنند.
+کلاس Food, Order فقط یک وظیفه را بر عهده دارند و به ترتیب مشخص کردن نوع غذا و قیمت آن و نگه‌داشتن سفارش مشتری است. اما در کلاس‌های OrderService هم منطق Payment هندل شده است و هم منطق Registration. بنابراین برای برقراری این اصل این اینترفیس و کلاس‌ها باید تغییر کنند. همینطور در کلاس Main منطق انتخاب غذا پیاده‌سازی شده است اما این کلاس فقط برای initialize کردن کلاس‌های مختلف برای برنامه باید باشد.
 
 </br>
 </br>
