@@ -1,15 +1,17 @@
 package services;
 
 import payments.PaymentService;
+import payments.PhonePaymentService;
 import registers.RegisterService;
+import registers.PhoneRegisterService;
 
 public class PhoneOrderService implements OrderService {
     private PaymentService paymentService;
     private RegisterService registerService;
 
     public PhoneOrderService() {
-        this.paymentService = null;
-        this.registerService = null;
+        this.paymentService = new PhonePaymentService();
+        this.registerService = new PhoneRegisterService();
     }
 
     @Override

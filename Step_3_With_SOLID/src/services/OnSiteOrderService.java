@@ -1,15 +1,17 @@
 package services;
 
 import payments.PaymentService;
+import payments.OnSitePaymentService;
 import registers.RegisterService;
+import registers.OnSiteRegisterService;
 
 public class OnSiteOrderService implements OrderService {
     private PaymentService paymentService;
     private RegisterService registerService;
 
     public OnSiteOrderService() {
-        this.paymentService = null;
-        this.registerService = null;
+        this.paymentService = new OnSitePaymentService();
+        this.registerService = new OnSiteRegisterService();
     }
 
     @Override

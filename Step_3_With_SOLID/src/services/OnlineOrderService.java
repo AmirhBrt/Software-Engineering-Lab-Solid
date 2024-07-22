@@ -1,15 +1,17 @@
 package services;
 
 import payments.PaymentService;
+import payments.OnlinePaymentService;
 import registers.RegisterService;
+import registers.OnlineRegisterService;
 
 public class OnlineOrderService implements OrderService {
     private PaymentService paymentService;
     private RegisterService registerService;
 
     public OnlineOrderService() {
-        this.paymentService = null;
-        this.registerService = null;
+        this.paymentService = new OnlinePaymentService();
+        this.registerService = new OnlineRegisterService();
     }
 
     @Override
