@@ -1,13 +1,24 @@
 package services;
 
+import payments.PaymentService;
+import registers.RegisterService;
+
 public class OnSiteOrderService implements OrderService {
+    private PaymentService paymentService;
+    private RegisterService registerService;
+
+    public OnSiteOrderService() {
+        this.paymentService = null;
+        this.registerService = null;
+    }
+
     @Override
     public void register(String customerName) {
-        System.out.println("on-Site order registered for " + customerName);
+        this.registerService.register(customerName);
     }
 
     @Override
     public void pay(int foodPrice) {
-        System.out.println("on-Site Payment with Price : " + foodPrice + " Tomans!");
+        this.paymentService.pay(foodPrice);
     }
 }

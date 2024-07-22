@@ -1,13 +1,24 @@
 package services;
 
+import payments.PaymentService;
+import registers.RegisterService;
+
 public class PhoneOrderService implements OrderService {
+    private PaymentService paymentService;
+    private RegisterService registerService;
+
+    public PhoneOrderService() {
+        this.paymentService = null;
+        this.registerService = null;
+    }
+
     @Override
     public void register(String customerName) {
-        System.out.println("phone order registered for " + customerName);
+        this.registerService.register(customerName);
     }
 
     @Override
     public void pay(int foodPrice) {
-        System.out.println("phone Payment with Price : " + foodPrice + " Tomans!");
+        this.paymentService.pay(foodPrice);
     }
 }
