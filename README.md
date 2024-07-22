@@ -130,3 +130,129 @@
 </table>
 
 ## بخش دوم: تحلیل و بررسی برنامه از منظر SOLID
+
+موارد نقض شده را در جدول پایین مشاهده می‌کنیم، تمامی موارد بر اساس کد نهایی بخش اول هستند.
+
+<table dir='rtl'>
+<tbody>
+<tr>
+<td rowspan="2" width="240">
+<p>اصل 1</p>
+<p>Single Responsibility</p>
+</td>
+<td width="95">
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td width="454">
+<p>Food, Order, Main, OrderService, OnlineOrderService, OnSiteOrderService, PhoneOrderService</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p></p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 2</p>
+<p>Open-Close Principle (OCP)</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p>همه‌ی کلاس‌ها به غیر از Main</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>Main</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 3</p>
+<p>Liskov Substitution Principle</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p>در همه کلاس‌ها رعایت شده است</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 4</p>
+<p>Interface Segregation Principle</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>این مورد در OrderService interface که تنها اینترفیس کد است رعایت نشده است.</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 5</p>
+<p>Dependency Inversion Principle</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p>همه کلاس‌ها جز Main</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>Main</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div dir="rtl">
+کلاس Food, Main, Order فقط یک وظیفه را بر عهده دارند و به ترتیب مشخص کردن نوع غذا و قیمت آن، ساختن سرویس‌های مختلف و شروع استفاده برای مشتری و نگه‌داشتن سفارش مشتری است. همینطور در کلاس‌های OrderService هم این اصل رعایت شده است چون هرکدام وظیفه هندل کردن یک نوع payment را دارند.
+
+</br>
+</br>
+
+در کلاس Main اصل OCP رعایت نشده‌است. در این کلاس با اضافه شدن روش‌های پرداخت جدید نیاز به تغییر کد درون آن هستیم بنابراین باید کد Main به روش دیگری نوشته شود.
+
+</br>
+</br>
+
+اصل ISP برای اینترفیس OrderService رعایت نشده است چرا که کلاس‌هایی که این اینترفیس را implement کرده‌اند ملزوم به پیاده‌سازی تابع‌هایی هستند که متعلق به آن‌ها نیست و باید بدنه آن را خالی می‌گذارند. به عبارتی مدل تابع‌های موجود در این اینترفیس باعث شده است که این تابع‌ها متعلق به implementation ها باشند به جای اینکه وابسته به abstraction باشند و این برای اصل Dependency Inversion هم مشکل به وجود آورده است.
+
+</br>
+</br>
+
+در تابع Main این اصل رعایت نشده است چرا که بسته به اینکه چه کلاسی اینترفیس را پیاده‌سازی کرده است باید رفتار متفاوتی از خود نشان دهد. این کلاس به جای اینکه بر روی abstraction اینترفیس OrderService تمرکز کند، به این دقت می‌کند که چه کلاسی این اینترفیس را پیاده‌سازی کرده است.
+</div>
