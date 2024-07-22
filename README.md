@@ -299,10 +299,10 @@
 <p>Single Responsibility</p>
 </td>
 <td width="246">
-<p>هندل شدن منطق register و pay در کلاس‌های OrderService</p>
+<p>هندل شدن منطق register و pay در کلاس‌های OrderService همینطور منطق انتخاب غذا در Main</p>
 </td>
 <td width="284">
-<p>جدا کردن منطق register, pay با استفاده از interface های جدید</p>
+<p>جدا کردن منطق register, pay با استفاده از interface های جدید و اضافه کردن سرویس جدید برای انتخاب غذا بین انتخاب‌های مختلف</p>
 </td>
 </tr>
 <tr>
