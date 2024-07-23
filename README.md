@@ -33,4 +33,290 @@
 
 اکنون می‌توانیم در منوی انتخاب روش پرداخت، با انتخاب عدد سه، پرداخت را به صورت تلفنی انجام دهیم. 
 
+جدول تغییرات به صورت زیر است
+
+<table dir='rtl'>
+<tbody>
+<tr>
+<td width="64">
+<p><strong>ردیف</strong></p>
+</td>
+<td width="198">
+<p><strong>محل اعمال تغییرات (کلاس/واسط)</strong></p>
+</td>
+<td width="141">
+<p><strong>عنوان تغییر</strong></p>
+</td>
+<td width="292">
+<p><strong>شرحی کوتاه از تغییر</strong></p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p><strong>۱</strong></p>
+</td>
+<td width="198">
+<p>OrderService</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای پشتیبانی از کلاس جدید</p>
+</td>
+<td width="292">
+<p>افزودن دو تابع void با نام phoneOrderRegister و phoneOrderPayment برای پشتیبانی از روش جدید رجیستر و پرداخت</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۲</strong></p>
+</td>
+<td width="198">
+<p>PhoneOrderService</p>
+</td>
+<td width="141">
+<p>کلاس جدید برای پشتیبانی از خدمات تلفنی</p>
+</td>
+<td width="292">
+<p>افزودن کلاس جدید PhoneOrderService برای پیاده‌سازی دو تابع void با نام‌های phoneOrderPayment و phoneOrderRegister و بدنه‌ تابع‌های دیگر خالی</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۳</strong></p>
+</td>
+<td width="198">
+<p>OnSiteOrderService</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای رفع خطای کامپایل</p>
+</td>
+<td width="292">
+<p>پیاده‌سازی دو تابع جدید phoneOrderRegister و phoneOrderPayment برای پیروی از اینترفیس OrderService</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۴</strong></p>
+</td>
+<td width="198">
+<p>OnlineOrderService</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای رفع خطای کامپایل</p>
+</td>
+<td width="292">
+<p>پیاده‌سازی دو تابع جدید phoneOrderRegister و phoneOrderPayment برای پیروی از اینترفیس OrderService</p>
+</td>
+</tr>
+
+<tr>
+<td width="64">
+<p><strong>۵</strong></p>
+</td>
+<td width="198">
+<p>Main</p>
+</td>
+<td width="141">
+<p>افزودن تابع برای رفع خطای کامپایل</p>
+</td>
+<td width="292">
+<p>اضافه کردن خطوط کد جدید در خطوط ۴۷ تا ۴۹ و ۵۸ تا ۵۹ فایل Main.java برای اضافه کردن روش پرداخت تلفنی جدید</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+کل تغییرات: ۵
+
 ## بخش دوم: تحلیل و بررسی برنامه از منظر SOLID
+
+موارد نقض شده را در جدول پایین مشاهده می‌کنیم، تمامی موارد بر اساس کد نهایی بخش اول هستند.
+
+<table dir='rtl'>
+<tbody>
+<tr>
+<td rowspan="2" width="240">
+<p>اصل 1</p>
+<p>Single Responsibility</p>
+</td>
+<td width="95">
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td width="454">
+<p>Food, Order</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>Main, OrderService, OnlineOrderService, OnSiteOrderService, PhoneOrderService</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 2</p>
+<p>Open-Close Principle (OCP)</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p>همه‌ی کلاس‌ها به غیر از Main</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>Main</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 3</p>
+<p>Liskov Substitution Principle</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p>در همه کلاس‌ها رعایت شده است</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 4</p>
+<p>Interface Segregation Principle</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>این مورد در OrderService interface که تنها اینترفیس کد است رعایت نشده است.</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">
+<p>اصل 5</p>
+<p>Dependency Inversion Principle</p>
+</td>
+<td>
+<p><strong>موارد تحقق</strong></p>
+</td>
+<td>
+<p>همه کلاس‌ها جز Main</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>موارد نقض</strong></p>
+</td>
+<td>
+<p>Main</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div dir="rtl">
+کلاس Food, Order فقط یک وظیفه را بر عهده دارند و به ترتیب مشخص کردن نوع غذا و قیمت آن و نگه‌داشتن سفارش مشتری است. اما در کلاس‌های OrderService هم منطق Payment هندل شده است و هم منطق Registration. بنابراین برای برقراری این اصل این اینترفیس و کلاس‌ها باید تغییر کنند. همینطور در کلاس Main منطق انتخاب غذا پیاده‌سازی شده است اما این کلاس فقط برای initialize کردن کلاس‌های مختلف برای برنامه باید باشد.
+
+</br>
+</br>
+
+در کلاس Main اصل OCP رعایت نشده‌است. در این کلاس با اضافه شدن روش‌های پرداخت جدید نیاز به تغییر کد درون آن هستیم بنابراین باید کد Main به روش دیگری نوشته شود.
+
+</br>
+</br>
+
+اصل ISP برای اینترفیس OrderService رعایت نشده است چرا که کلاس‌هایی که این اینترفیس را implement کرده‌اند ملزوم به پیاده‌سازی تابع‌هایی هستند که متعلق به آن‌ها نیست و باید بدنه آن را خالی می‌گذارند. به عبارتی مدل تابع‌های موجود در این اینترفیس باعث شده است که این تابع‌ها متعلق به implementation ها باشند به جای اینکه وابسته به abstraction باشند و این برای اصل Dependency Inversion هم مشکل به وجود آورده است.
+
+</br>
+</br>
+
+در تابع Main این اصل رعایت نشده است چرا که بسته به اینکه چه کلاسی اینترفیس را پیاده‌سازی کرده است باید رفتار متفاوتی از خود نشان دهد. این کلاس به جای اینکه بر روی abstraction اینترفیس OrderService تمرکز کند، به این دقت می‌کند که چه کلاسی این اینترفیس را پیاده‌سازی کرده است.
+</div>
+
+در جدول پایین پیشنهادات ما آورده شده است.
+
+<table dir='rtl'>
+<tbody>
+<tr>
+<td width="168">
+<p><strong>اصل مربوطه (از اصول </strong><strong>SOLID</strong><strong>)</strong></p>
+</td>
+<td width="246">
+<p><strong>علت نقض</strong></p>
+</td>
+<td width="284">
+<p><strong>راه حل پیشنهادی</strong></p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Interface Segregation</p>
+</td>
+<td width="246">
+<p>کلاس OrderService و توابع آن</p>
+</td>
+<td width="284">
+<p>استفاده از دو تابع register, pay</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Dependency Inversion</p>
+</td>
+<td width="246">
+<p>کلاس Main و نحوه کال کردن توابع pay, register</p>
+</td>
+<td width="284">
+<p>فقط استفاده از توابع pay, register</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Single Responsibility</p>
+</td>
+<td width="246">
+<p>هندل شدن منطق register و pay در کلاس‌های OrderService همینطور منطق انتخاب غذا در Main</p>
+</td>
+<td width="284">
+<p>جدا کردن منطق register, pay با استفاده از interface های جدید و اضافه کردن سرویس جدید برای انتخاب غذا بین انتخاب‌های مختلف</p>
+</td>
+</tr>
+<tr>
+<td width="168">
+<p>Open-Closed</p>
+</td>
+<td width="246">
+<p>رعایت نشدن این اصل در کال کردن pay, register در کلاس Main</p>
+</td>
+<td width="284">
+<p>در Main فقط از pay, register استفاده شود</p>
+</td>
+</tr>
+</tbody>
+</table>
