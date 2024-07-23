@@ -1,7 +1,7 @@
-import PaymentServices.OnSiteOrderService;
-import PaymentServices.OnlineOrderService;
-import PaymentServices.OrderService;
-import PaymentServices.PhoneOrderService;
+import services.OnSiteOrderService;
+import services.OnlineOrderService;
+import services.OrderService;
+import services.PhoneOrderService;
 
 import java.util.Scanner;
 
@@ -25,7 +25,7 @@ public class Main {
             System.out.println("For Ordering Pizza enter 2.");
             System.out.println("For submit your order enter 3");
             customerAnswerForOrder = scanner.nextInt();
-            order.addItem(Food.getFoodByItemNumber(customerAnswerForOrder))
+            order.addItem(Food.getFoodByItemNumber(customerAnswerForOrder));
         }
 
         //Step2 : Select Payment Method
