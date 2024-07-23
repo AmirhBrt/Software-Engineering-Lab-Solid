@@ -1,4 +1,4 @@
-package registers;
+package RegisterServices;
 
 public class OnlineRegisterService implements RegisterService {
     public void register(String customerName){

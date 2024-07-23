@@ -6,7 +6,6 @@ public enum Food {
     final int itemNumber;
     final String foodName;
     final int price;
-    final int quantity = 1;
 
     Food(String foodName, int foodPrice, int itemNumber){
         this.foodName = foodName;

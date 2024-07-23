@@ -1,4 +1,4 @@
-package registers;
+package RegisterServices;
 
 public class PhoneRegisterService implements RegisterService {
     public void register(String customerName){

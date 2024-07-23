@@ -1,4 +1,4 @@
-package payments;
+package PaymentServices;
 
 public class OnSitePaymentService implements PaymentService {
     public void pay(int foodPrice){

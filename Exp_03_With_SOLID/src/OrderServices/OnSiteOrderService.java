@@ -1,13 +1,13 @@
-package services;
+package OrderServices;
 
-import payments.PaymentService;
-import payments.OnSitePaymentService;
-import registers.RegisterService;
-import registers.OnSiteRegisterService;
+import PaymentServices.PaymentService;
+import PaymentServices.OnSitePaymentService;
+import RegisterServices.RegisterService;
+import RegisterServices.OnSiteRegisterService;
 
 public class OnSiteOrderService implements OrderService {
-    private PaymentService paymentService;
-    private RegisterService registerService;
+    private final PaymentService paymentService;
+    private final RegisterService registerService;
 
     public OnSiteOrderService() {
         this.paymentService = new OnSitePaymentService();

@@ -1,30 +1,27 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Order {
     String customerName;
     ArrayList<Food> foods = new ArrayList<>();
-    LocalDateTime orderDate= LocalDateTime.now();
 
-    public Order(String customerName){
-        this.customerName= customerName;
+    public Order(String customerName) {
+        this.customerName = customerName;
     }
 
-    public void addItem(Food food){
+    public void addItem(Food food) {
         if (food == null) return;
         this.foods.add(food);
     }
 
-    public int getTotalPrice(){
-        int price= this.foods.stream().mapToInt(food -> food.price).sum();
-        return price;
+    public int getTotalPrice() {
+        return this.foods.stream().mapToInt(Food::getPrice).sum();
     }
 
     @Override
     public String toString() {
-        String orders ="";
-        for (Food food:this.foods) {
-            orders+= food.foodName + " -> " + food.price+"\n";
+        String orders = "";
+        for (Food food : this.foods) {
+            orders += food.getFoodName() + " -> " + food.price + "\n";
         }
         return "Customer : " + customerName + "\nOrders are : \n" + orders + "\nTotal Price : " + this.getTotalPrice();
     }

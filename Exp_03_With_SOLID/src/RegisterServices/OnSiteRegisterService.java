@@ -1,4 +1,4 @@
-package registers;
+package RegisterServices;
 
 public class OnSiteRegisterService implements RegisterService {
     public void register(String customerName){

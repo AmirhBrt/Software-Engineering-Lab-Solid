@@ -1,19 +1,19 @@
-import services.OnSiteOrderService;
-import services.OnlineOrderService;
-import services.OrderService;
-import services.PhoneOrderService;
+import OrderServices.OnSiteOrderService;
+import OrderServices.OnlineOrderService;
+import OrderServices.OrderService;
+import OrderServices.PhoneOrderService;
 
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner scanner= new Scanner(System.in);
         OrderService orderService = null;
         String customerName;
         Order order;
         int customerAnswerForOrder=0;
-        int customerAnswerForPaymentMethod=0;
+        int customerAnswerForPaymentMethod;
 
         System.out.println("Enter Customer Name : ");
         customerName = scanner.nextLine();
@@ -38,6 +38,8 @@ public class Main {
         } else if(customerAnswerForPaymentMethod==3){
             orderService = new PhoneOrderService();
         }
+        if (orderService == null)
+            throw new Exception("Must choose only from [1, 2, 3]!");
         orderService.register(customerName);
 
         //Step3 : pay price
